@@ -9,37 +9,40 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 module.exports = (robot) ->
-    
-    #robot.hear /crystal/i, (res) ->
-        #res.send "Crystal? Crystal is the best, man."
+    brags = [
+        "Crystal? Crystal is the best, man.",
+        "Speaking of interns, I really don't know how you guys are going to follow up with getting an intern of equal or higher caliber.",
+    ]
+   
+    comments = [
+        "Has anyone noticed that the temperature in the kill room has gone down ever since Crystal's hotness left the kill room?",
+        "Remember that awesome intern, Crystal? Of course you do. She was hella tite.",
+    ]
+ 
+    robot.respond /crystal|intern|ludacrystal|the intern/i, (res) ->
+        res.send res.random brags
 
+    robot.hear /cache|caching/i, (res) ->
+        res.send "Now that you mention cash, C-Money was the best intern of all time."
 
-    #if robot.hear /crystal/i, (res) ->
-        #res.send "Crystal? Crystal is the best, man."
+    robot.hear /tfi/i, (res) ->
+        res.send "At least I'm not the TFW, am I right?."
 
-    #else if robot.hear /intern/i, (res) ->
-        #res.send "Speaking of interns, I really don't know how you guys are going to follow up with getting an intern of equal or higher caliber."
+    robot.hear /omg/i, (res) ->
+        res.send "OMG is right."
 
-    #else if robot.hear /tfi/i, (res) ->
-        #res.send "At least she wasn't the TFW, am I right?."
+    robot.hear /giphy/i, (res) ->
+        res.send "Oh man, I LOVE giphys!"
 
-    #else if robot.hear /omg/i, (res) ->
-        #res.send "OMG is right."
-
-    #else if robot.respond /stop|leave/i, (res) ->
-        #res.reply "I'm afraid I can't do that. Crystal must be immortalized."
-#doorType = res.match[1]
-#if doorType is "pod bay"
-#res.reply "I'm afraid I can't let you do that."
-#else
-#res.reply "Opening #{doorType} doors"
+    robot.respond /stop|leave/i, (res) ->
+        res.reply "I'm afraid I can't stop. Crystal must be immortalized."
 
     robot.hear /chmod/i, (res) ->
         res.emote "Remember that awesome intern, Crystal? She was awesome."
 
     lulz = ['lol', 'rofl', 'lmao', 'haha']
 
-    robot.respond /lulz/i, (res) ->
+    robot.respond /lulz|lol|rofl|lmao|haha|funny/i, (res) ->
         res.send res.random lulz
 
     # robot.topic (res) ->
