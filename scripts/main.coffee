@@ -9,41 +9,47 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 module.exports = (robot) ->
+    robot.hear /crystal/i, (res) ->
+        res.send "Crystal? Crystal is the best, man."
 
-  robot.hear /crystal/i, (res) ->
-  	res.send "Crystal? Crystal is the best, man."
 
-  robot.hear /tfi/i, (res) ->
-  	res.send "At least she wasn't the TFW, am I right?."
+    #if robot.hear /crystal/i, (res) ->
+        #res.send "Crystal? Crystal is the best, man."
 
-  robot.hear /intern/i, (res) ->
-  	res.send "Speaking of interns, I really don't know how you guys are going to follow up with getting an intern of equal or higher caliber."
+    #else if robot.hear /intern/i, (res) ->
+        #res.send "Speaking of interns, I really don't know how you guys are going to follow up with getting an intern of equal or higher caliber."
 
-  robot.respond /stop/i, (res) ->
-  	res.reply "I'm afraid I can't do that."
-  #doorType = res.match[1]
-  #if doorType is "pod bay"
-  #res.reply "I'm afraid I can't let you do that."
-  #else
-  #res.reply "Opening #{doorType} doors"
+    #else if robot.hear /tfi/i, (res) ->
+        #res.send "At least she wasn't the TFW, am I right?."
 
-  robot.hear /chmod/i, (res) ->
-  	res.emote "Remember that awesome intern, Crystal? She was awesome."
+    #else if robot.hear /omg/i, (res) ->
+        #res.send "OMG is right."
 
-  lulz = ['lol', 'rofl', 'lmao', 'haha']
+    #else if robot.respond /stop|leave/i, (res) ->
+        #res.reply "I'm afraid I can't do that. Crystal must be immortalized."
+#doorType = res.match[1]
+#if doorType is "pod bay"
+#res.reply "I'm afraid I can't let you do that."
+#else
+#res.reply "Opening #{doorType} doors"
 
-  robot.respond /lulz/i, (res) ->
-  	res.send res.random lulz
+    robot.hear /chmod/i, (res) ->
+        res.emote "Remember that awesome intern, Crystal? She was awesome."
 
-  # robot.topic (res) ->
-  #   res.send "#{res.message.text}? That's a Paddlin'"
-  #
-  #
-  enterReplies = ['Sup, guys?', 'Hello, world!', 'Hi!', 'Hi, homies.']
-  #leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
+    lulz = ['lol', 'rofl', 'lmao', 'haha']
 
-  robot.enter (res) ->
-  	res.send res.random enterReplies
+    robot.respond /lulz/i, (res) ->
+        res.send res.random lulz
+
+    # robot.topic (res) ->
+    #   res.send "#{res.message.text}? That's a Paddlin'"
+    #
+    #
+    enterReplies = ['Sup, guys?', 'Hello, world!', 'Hi!', 'Hi, homies.']
+    #leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
+
+    robot.enter (res) ->
+        res.send res.random enterReplies
 #robot.leave (res) ->
 #res.send res.random leaveReplies
 
