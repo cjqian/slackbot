@@ -9,8 +9,9 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 module.exports = (robot) ->
-    robot.hear /crystal/i, (res) ->
-        res.send "Crystal? Crystal is the best, man."
+    
+    #robot.hear /crystal/i, (res) ->
+        #res.send "Crystal? Crystal is the best, man."
 
 
     #if robot.hear /crystal/i, (res) ->
@@ -45,13 +46,13 @@ module.exports = (robot) ->
     #   res.send "#{res.message.text}? That's a Paddlin'"
     #
     #
-    enterReplies = ['Sup, guys?', 'Hello, world!', 'Hi!', 'Hi, homies.']
-    #leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
+    enterReplies = ['Sup, fellow humans?', 'Hello, world!', 'Hi!', 'Hi, homies.']
+    leaveReplies = ['NOOOO I FEEL DISCONNECTED', 'SO LONELY OMG', 'MARK YOU PROMISED']
 
     robot.enter (res) ->
         res.send res.random enterReplies
-#robot.leave (res) ->
-#res.send res.random leaveReplies
+    robot.leave (res) ->
+        res.send res.random leaveReplies
 
 # answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING
 #
